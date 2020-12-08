@@ -25,3 +25,4 @@ production:
   database: RubyPinterest_production
   username: RubyPinterest
   password: <%= ENV['RUBYPINTEREST_DATABASE_PASSWORD'] %>
+  
