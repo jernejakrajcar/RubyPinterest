@@ -1,4 +1,3 @@
-
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -7,14 +6,21 @@ default: &default
 development:
   <<: *default
   database: RubyPinterest_development
+  host: 127.0.0.1
+  port: 5433
+  username: postgres
+  password: arigatou12
 
 test:
   <<: *default
   database: RubyPinterest_test
+  host: 127.0.0.1
+  port: 5433
+  username: postgres
+  password: arigatou12
 
 production:
   <<: *default
   database: RubyPinterest_production
   username: RubyPinterest
   password: <%= ENV['RUBYPINTEREST_DATABASE_PASSWORD'] %>
-  
