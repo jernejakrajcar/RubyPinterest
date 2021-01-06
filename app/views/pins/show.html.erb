@@ -19,5 +19,4 @@
   <%= @pin.user.email %>
 </p>
 
-<%= link_to 'Edit', edit_pin_path(@pin) %> |
-<%= link_to 'Back', pins_path %>
+<%= display_pin_show_links(@pin) %>
