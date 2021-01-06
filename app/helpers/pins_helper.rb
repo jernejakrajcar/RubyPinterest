@@ -1,19 +1,19 @@
 module PinsHelper
   def display_index_pin_links(pin)
-    html = "<td>#{link_to 'Show', pin }</td>"
-    html += "<td>#{link_to 'Edit', edit_pin_path(pin) if current_user == pin.user}</td>"
-    html += "<td>#{link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } if current_user == pin.user}</td>"
-
-    html.html_safe
+    capture do
+      concat content_tag(:td, link_to('Show', pin))
+      if current_user == pin.user
+        concat content_tag(:td, link_to('Edit', edit_pin_path(pin)))
+        concat content_tag(:td, link_to('Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' }))
+      end
+    end
   end
 
   def display_show_pin_links(pin)
-    html = ""
-    if current_user == pin.user
-      html += link_to 'Edit', edit_pin_path(@pin)
-      htmml += ' | '
+    capture do
+      concat link_to 'Edit', edit_pin_path(pin) if current_user == pin.user
+      concat ' | ' if current_user == pin.user
+      concat link_to 'Back', pins_path
     end
-    html += link_to 'Back', pins_path
-    html.html_safe
   end
 end
