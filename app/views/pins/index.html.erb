@@ -15,7 +15,7 @@
     <% @pins.each do |pin| %>
       <tr>
         <td><%= pin.title %></td>
-        <td><%= pin.user.email %></td>
+        <td><%= pin.user.name || 'Anonimous' %></td>
         <td><%= pin.description %></td>
         <td><%= pin.picture %></td>
         <%= display_index_pin_links(pin) %>
