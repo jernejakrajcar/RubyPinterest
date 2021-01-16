@@ -1,6 +1,7 @@
 class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :authorize_user!, except: [:index, :show]
 
   # GET /pins
   # GET /pins.json
@@ -72,5 +73,9 @@ class PinsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def pin_params
       params.require(:pin).permit(:title, :description, :picture)
+    end
+
+    def authorize_user!
+      redirect_back fallback_location: root_path, alert: 'You do not have permission for this site' unless current_user == @pin.user
     end
 end
