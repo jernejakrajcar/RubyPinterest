@@ -3,7 +3,10 @@
     return $('#pins').imagesLoaded(function() {
       return $('#pins').masonry({
         itemSelector: '.box',
-        isFitWidth: true
+        isFitWidth: true,
+        columnWidth: function( containerWidth ) {
+          return containerWidth / 5;
+        }
       });
     });
   });
