@@ -1,6 +1,24 @@
 <h1>Pins</h1>
 
-<table>
+
+<%# <% @pins.each do |pin|  %>
+  <%# <% if pin.image.attached? %>
+    <%# <%= h2=link_to image_tag(pin.image), pin %>
+  <%# <% end %>
+
+<%# <% end %>
+
+<div class="transitions-enabled" id="pins">
+  <% @pins.each do |pin| %>
+  <div class="box panel panel-default">
+    <%= link_to (image_tag(pin.image)), pin %>
+  </div>
+  <% end %>
+</div>
+
+
+
+<!-- <table>
   <thead>
     <tr>
       <th>Title</th>
@@ -12,17 +30,17 @@
   </thead>
 
   <tbody>
-    <% @pins.each do |pin| %>
+    <%# <% @pins.each do |pin| %> %>
       <tr>
-        <td><%= pin.title %></td>
-        <td><%= pin.user.name || 'Anonimous' %></td>
-        <td><%= pin.description %></td>
-        <td><%= image_tag(pin.image) if pin.image.attached? %></td>
-        <%= display_index_pin_links(pin) %>
+        <%# <td><%= pin.title %></td> %>
+        <%# <td><%= pin.user.name || 'Anonimous' %></td> %>
+        <%# <td><%= pin.description %></td> %>
+        <%# <td><%= image_tag(pin.image) if pin.image.attached? %></td> %>
+        <%# <%= display_index_pin_links(pin) %> %>
       </tr>
-    <% end %>
+    <%# <% end %> %>
   </tbody>
-</table>
+</table> -->
 
 <br>
 
