@@ -9,11 +9,16 @@
 *= require 'masonry/transitions'
 */
 
-body{
+body, html{
 	margin: 0 auto;
 	padding: 0;
 	height: 100%;
 	background-color: #e7e7e7;
+}
+
+.divider{
+	height:50px;
+	
 }
 
 .user_card {
