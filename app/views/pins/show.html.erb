@@ -10,8 +10,8 @@
 </p>
 
 <p>
-  <strong>Picture:</strong>
-  <%= @pin.picture %>
+  <strong>Image:</strong>
+  <%= image_tag(@pin.image) if @pin.image.attached? %>
 </p>
 
 <p>

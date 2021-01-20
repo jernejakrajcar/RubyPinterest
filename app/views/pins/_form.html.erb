@@ -21,10 +21,16 @@
     <%= form.text_area :description, required: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :picture %>
-    <%= form.text_area :picture %>
+
+  <div class="form-group">
+    <% if pin.image.attached? %>
+      <%= image_tag pin.image %>
+    <% end %>
+
+    <%= form.label :image %>
+    <%= form.file_field :image, class:"form-control" %>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>
