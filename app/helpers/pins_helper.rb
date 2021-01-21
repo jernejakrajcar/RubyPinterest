@@ -13,6 +13,8 @@ module PinsHelper
     capture do
       concat link_to 'Edit', edit_pin_path(pin) if current_user == pin.user
       concat ' | ' if current_user == pin.user
+      concat link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure? '} if current_user == pin.user
+      concat ' | ' if current_user == pin.user
       concat link_to 'Back', pins_path
     end
   end

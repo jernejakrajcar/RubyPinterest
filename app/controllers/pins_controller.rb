@@ -1,12 +1,13 @@
 class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :authorize_user!, except: [:index, :show, :new, :create]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   # GET /pins
   # GET /pins.json
   def index
-    @pins = Pin.all
+    # @pins = Pin.all
+    @pins = Pin.all.order("created_at DESC")
   end
 
   # GET /pins/1
@@ -72,7 +73,7 @@ class PinsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pin_params
-      params.require(:pin).permit(:title, :description, :picture)
+      params.require(:pin).permit(:title, :description, :picture, :image)
     end
 
     def authorize_user!
