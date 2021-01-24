@@ -1,22 +1,24 @@
+<div class="container h100">
+  <div class="pin-base">
+    <div class="pin-photo">
+      <%= image_tag(@pin.image) if @pin.image.attached? %>
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @pin.title %>
-</p>
+    <div class="pin-info">
+      <h2><%= @pin.title %></h2>
+      <p><%= @pin.description %></p>
+    </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @pin.description %>
-</p>
+    <div class="info">
+      <p>
+        <strong>Author:</strong>
+        <%= @pin.user.name %>
+      </p>
+    </div>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag(@pin.image) if @pin.image.attached? %>
-</p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @pin.user.email %>
-</p>
+  </div>
 
 <%= display_show_pin_links(@pin) %>
+
+</div>
