@@ -6,6 +6,11 @@
 
 <%# <% end %>
 
+<% if current_user %>
+  <h3><%= current_user.name %></h3>
+  <h3><%= current_user.email %></h3>
+<% end %>
+
 <div id="pins" class="transitions-enabled infinite-scroll centered clearfix">
   <% @pins.each do |pin| %>
   <div class="box panel panel-default">
