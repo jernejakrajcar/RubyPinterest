@@ -18,9 +18,44 @@ body, html{
 	background-color: #e7e7e7;
 }
 
+.container-button-back {
+	margin-left: 10%;
+}
+
 .divider{
 	height:50px;
+}
 
+.form-heading {
+	color:#353535;
+	font-size:25px;
+}
+
+.panel h2 {
+	color:#444444;
+	margin:0 0 8px 0;
+}
+
+.login-form .form-control{
+	background: #f7f7f7;
+	border: 1px solid #d4d4d4;
+	border-radius:4px;
+	height:50px;
+	line-height:50px;
+}
+
+.form-control-image {
+	border-radius:4px;
+	height:85px;
+	line-height:30px;
+}
+
+.main-div {
+	background: #ffffff;
+	border-radius: 2px;
+	margin:10px auto 30px;
+	max-width:45%;
+	padding:50px 70px 70px 71px;
 }
 
 .user_card {
@@ -52,6 +87,7 @@ body, html{
   width: 100%;
 	display: flex;
 	flex-wrap: wrap;
+	align-items: flex-start;
   .box {
    margin: 10px;
    width: 355px;
@@ -64,6 +100,7 @@ body, html{
     max-width: 100%;
     height: auto;
 		border-radius: 15px;
+		max-height: 75%;
    }
    h2 {
     font-size: 22px;
@@ -80,6 +117,32 @@ body, html{
    margin: 0;
    }
  }
+}
+
+.add-pin {
+	position: fixed;
+	right: 10%;
+	top:10%;
+	z-index: 2;
+	.button-add {
+		border-radius:50px;
+		color:black;
+		padding: 2px 30px 15px 30px;
+    font-size: xxx-large;
+		background-color: #f8f9fa;
+		display:inline-block;
+		font-weight:bold;
+		text-align:center;
+		transition:color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+		a:hover{
+			text-decoration: none;
+		}
+	}
+}
+
+.pin-link {
+	margin: 0 auto;
+	color: #f52c5c;
 }
 
 .brand_logo_container {
