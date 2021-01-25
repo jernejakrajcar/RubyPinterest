@@ -39,7 +39,7 @@ $(window).on('load', function() {
     fileInput.fileupload({
       fileInput: fileInput,
       url: form.data('url'),
-      type: 'PUT',
+      type: 'POST',
       autoUpload: true,
       formData: form.data('form-data'),
       paramName: 'file',

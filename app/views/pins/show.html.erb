@@ -1,14 +1,19 @@
-<div class="container h100">
-  <div class="pin-base">
+<div class="container h100" style="text-align:center;">
+  <div class="pin-back" style="border-radius:10px;background-color:white;padding:50px;padding-bottom:300px;">
+  <div class="pin-base" style="border-radius:15px;max-height:500px;">
     <div class="pin-photo">
-      <%= image_tag(@pin.image) if @pin.image.attached? %>
+      <% if @pin.image.attached? %>
+      <%= image_tag(@pin.image, :class => "image_show" ) %>
+      <% end %>
     </div>
 
+    <hr>
     <div class="pin-info">
       <h2><%= @pin.title %></h2>
       <p><%= @pin.description %></p>
     </div>
 
+    <hr>
     <div class="info">
       <p>
         <strong>Author:</strong>
@@ -18,6 +23,7 @@
 
 
   </div>
+</div>
 
 <%= display_show_pin_links(@pin) %>
 
