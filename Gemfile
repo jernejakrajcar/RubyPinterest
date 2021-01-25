@@ -32,6 +32,10 @@ gem 'omniauth-github'
 
 gem 'omniauth-google-oauth2', '~> 0.8.0'
 
+gem 'omniauth-oauth2'
+
+gem 'omniauth', '~> 1.9.1'
+
 gem 'devise' # Avtentikacija uporabnika
 
 gem 'aws-sdk'
