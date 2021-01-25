@@ -82,6 +82,24 @@ body, html{
 
 }
 
+.user_card_big {
+	height: 1000px;
+	width: 600px;
+	background: #bdbdbd;
+	position: relative;
+	margin-top:20px;
+	margin-bottom:30px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 25px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 5px;
+
+}
+
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
@@ -208,6 +226,11 @@ body, html{
 .style_image {
 	height: 150px;
 	border-radius:50%;
+}
+
+.image_show {
+	border-radius:15px;
+	max-height:500px;
 }
 
 .searchbar{
