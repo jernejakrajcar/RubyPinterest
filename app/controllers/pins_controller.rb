@@ -2,6 +2,7 @@ class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
+  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
   # GET /pins
   # GET /pins.json
@@ -78,5 +79,9 @@ class PinsController < ApplicationController
 
     def authorize_user!
       redirect_back fallback_location: root_path, alert: 'You do not have permission for this site' unless current_user == @pin.user
+    end
+
+    def set_s3_direct_post
+      @s3_direct_post = bucket.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
     end
 end
