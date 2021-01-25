@@ -13,7 +13,11 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.name = auth.info.name
+      user.save!
       # user.avatar = auth.info.image
+
+      user.remember_me = true
+      sign_in(:user, user)
     end
   end
 
