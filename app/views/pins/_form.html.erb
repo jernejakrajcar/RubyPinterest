@@ -1,10 +1,10 @@
-<%= form_with(model: pin, html: { class: "directUpload", data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |form| %>
-  <% if pin.errors.any? %>
+<%= form_for(@pin, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |form| %>
+  <% if @pin.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(pin.errors.count, "error") %> prohibited this pin from being saved:</h2>
+      <h2><%= pluralize(@pin.errors.count, "error") %> prohibited this pin from being saved:</h2>
 
       <ul>
-        <% pin.errors.full_messages.each do |message| %>
+        <% @pin.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -23,12 +23,12 @@
 
 
   <div class="field">
-    <% if pin.image.attached? %>
-      <%= image_tag pin.image %>
+    <% if @pin.image.attached? %>
+      <%= image_tag @pin.image %>
     <% end %>
 
     <%= form.label :image %>
-    <%= form.file_field :image, class:"form-control" %>
+    <%= form.file_field :image %>
   </div>
 
 
