@@ -38,7 +38,7 @@ gem 'omniauth', '~> 1.9.1'
 
 gem 'devise' # Avtentikacija uporabnika
 
-gem 'aws-sdk'
+gem 'aws-sdk-s3'
 
 gem 'fog', '~> 1.37.0'
 gem "fog-aws"
