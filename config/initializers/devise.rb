@@ -277,7 +277,7 @@ Devise.setup do |config|
   # github_client_secret =
   # config.omniauth :github, github_client_id, github_client_secret, scope: 'user,public_repo'
 
-  # google_client_id = 
+  # google_client_id =
   # google_client_secret =
   # config.omniauth :google_oauth2, google_client_id, google_client_secret, scope: 'userinfo.email,userinfo.profile', skip_jwt: true
 
@@ -317,6 +317,7 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
 
   require "omniauth-google-oauth2"
   config.omniauth :github, Rails.application.credentials.dig(:github, :GITHUB_CLIENT_ID), Rails.application.credentials.dig(:github, :GITHUB_CLIENT_SECRET)
