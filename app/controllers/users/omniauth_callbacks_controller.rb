@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  skip_before_action :authenticate_user!
+
 
   def github
     @user = User.from_omniauth(request.env["omniauth.auth"])
@@ -20,7 +20,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, kind: "Google") if is_navigational_format?
     else
       session["devise.google_oauth2_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_path(user)
+      redirect_to new_user_registration_path
     end
   end
 
