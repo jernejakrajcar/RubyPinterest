@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[github google_oauth2]
 
-  has_many :pins
-  has_one_attached :avatar
+  acts_as_commontator
+  has_many :pins, dependent: :destroy
+  # has_one_attached :avatar
 
   def self.from_omniauth(auth)
      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

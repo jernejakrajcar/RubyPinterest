@@ -14,6 +14,7 @@ class PinsController < ApplicationController
   # GET /pins/1
   # GET /pins/1.json
   def show
+    commontator_thread_show(@pin)
   end
 
   # GET /pins/new
