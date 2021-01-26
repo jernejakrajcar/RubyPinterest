@@ -1123,6 +1123,9 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
+    commontator (6.3.0)
+      rails (>= 5.2)
+      will_paginate
     concurrent-ruby (1.1.8)
     crass (1.0.6)
     devise (4.7.3)
@@ -1436,6 +1439,7 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.0)
     xml-simple (1.1.8)
     xmlrpc (0.3.1)
     xpath (3.2.0)
@@ -1450,6 +1454,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  commontator
   devise
   dotenv-rails
   fog (~> 1.37.0)

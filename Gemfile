@@ -40,6 +40,8 @@ gem 'devise' # Avtentikacija uporabnika
 
 gem 'aws-sdk'
 
+gem 'commontator' #gem za komentarje
+
 gem 'fog', '~> 1.37.0'
 gem "fog-aws"
 gem 'dotenv-rails', groups: [:development, :test]
