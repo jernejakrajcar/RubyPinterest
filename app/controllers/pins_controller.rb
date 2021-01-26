@@ -33,7 +33,7 @@ class PinsController < ApplicationController
     @pin.user = current_user
 
     respond_to do |format|
-      if @pin.save
+      if @pin.save 
         format.html { redirect_to @pin, notice: 'Pin was successfully created.' }
         format.json { render :show, status: :created, location: @pin }
       else
