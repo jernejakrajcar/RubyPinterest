@@ -28,7 +28,7 @@ const imagePath = (name) => images(name, true)
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
-$(window).on('load', function() {
+$(window).on('turbolinks:load', function() {
   $('.directUpload').find("input:file").each(function(i, elem) {
     var fileInput = $(elem);
     var form = $(fileInput.parents('form:first'));
