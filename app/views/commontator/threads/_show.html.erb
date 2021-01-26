@@ -80,16 +80,16 @@
         user: user, nested_comments: nested_comments
       }
     %>
-  </div>
+   </div>
 
-  <div id="commontator-thread-<%= thread.id %>-pagination" class="pagination">
-    <div id="commontator-thread-<%= thread.id %>-page-entries-info" class="page-entries-info">
-      <%=
-        page_entries_info(comments) unless [ :i, :b ].include? thread.config.comment_reply_style
+   <div id="commontator-thread-<%= thread.id %>-pagination" class="pagination">
+    <!-- <div id="commontator-thread-<%#= thread.id %>-page-entries-info" class="page-entries-info"> -->
+      <%#=
+         page_entries_info(comments) unless [ :i, :b ].include? thread.config.comment_reply_style
       %>
-    </div>
+    <!-- </div> -->
 
-    <div id="commontator-thread-<%= thread.id %>-will-paginate" class="will-paginate">
+     <div id="commontator-thread-<%= thread.id %>-will-paginate" class="will-paginate">
       <%=
         name = t('commontator.thread.status.pages') \
           if [ :i, :b ].include?(thread.config.comment_reply_style)
