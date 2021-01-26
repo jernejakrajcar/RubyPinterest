@@ -10,6 +10,8 @@
   no_remote ||= false
 %>
 
+<div class="container" style="background-color:#ffffff;padding:5px;">
+  <h2>New comment</h2>
 <% config = comment.thread.config %>
 
 <% if comment.errors.any? %>
@@ -34,22 +36,24 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group" style="padding:50px;">
     <%=
       form.text_area :body, rows: '7', id: new_record ?
         comment.parent.nil? ? "commontator-thread-#{@commontator_thread.id}-new-comment-body" :
                               "commontator-comment-#{comment.parent.id}-reply" :
-        "commontator-comment-#{comment.id}-edit-body"
+        "commontator-comment-#{comment.id}-edit-body", class:"form-control"
     %>
     <%= javascript_tag('Commontator.initMentions();') if config.mentions_enabled %>
   </div>
 
   <div class="submit">
-    <%= form.submit t("commontator.comment.actions.#{new_record ? 'create' : 'update'}") %>
+    <%= form.submit t("commontator.comment.actions.#{new_record ? 'create' : 'update'}"), class:"btn btn-danger" %>
     <%=
       form.submit(
-        t('commontator.comment.actions.cancel'), name: 'cancel'
+        t('commontator.comment.actions.cancel'), name: 'cancel', class:"btn btn-secondary"
       ) unless config.new_comment_style == :t && new_record && comment.parent.nil?
     %>
   </div>
 <% end %>
+
+</div>

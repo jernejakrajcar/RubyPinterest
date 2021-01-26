@@ -15,11 +15,34 @@
   link = Commontator.commontator_link(creator, main_app)
   name = Commontator.commontator_name(creator) || ''
 %>
-
-<div id="commontator-comment-<%= comment.id %>-section-top" class="section top">
+<div class="container" style="border-radius:15px;background-color:#e3e3e3;padding:5px 50px 5px 50px;margin-bottom:5px;">
+<div id="commontator-comment-<%= comment.id %>-section-top" class="section top" >
+  <div class="row" style="display-flex:flex;justify-content:space-evenly;padding:10px 20px;">
+  <h4 style="color:rgb(228, 67, 67);text-decoration:underline;font-size:16px;">
   <span id="commontator-comment-<%= comment.id %>-author" class="author">
     <%= link.blank? ? name : link_to(name, link) %>
-  </span>
+  </span></h4>
+  <div id="commontator-comment-<%= comment.id %>-section-bottom" class="section bottom" style="color:grey;font-style:italic;">
+    <% unless comment.is_deleted? %>
+      <span id="commontator-comment-<%= comment.id %>-reply-link" class="reply">
+        <%=
+          link_to(
+            t('commontator.comment.actions.reply'),
+            commontator.new_thread_comment_path(thread, comment: { parent_id: comment.id }),
+            remote: true
+          ) if thread.config.comment_reply_style != :n && !thread.is_closed?
+        %>
+      </span>
+    <% end %>
+
+    <span id="commontator-comment-<%= comment.id %>-created-timestamp" class="timestamp">
+      <%= comment.created_timestamp %>
+    </span>
+
+    <span id="commontator-comment-<%= comment.id %>-updated-timestamp" class="timestamp">
+      <%= comment.updated_timestamp if comment.is_modified? %>
+    </span>
+  </div>
 
   <span id="commontator-comment-<%= comment.id %>-actions" class="actions">
     <%=
@@ -27,7 +50,7 @@
         t('commontator.comment.actions.edit'),
         commontator.edit_comment_path(comment),
         id: "commontator-comment-#{comment.id}-edit",
-        class: 'edit',
+        class: 'edit btn btn-secondary',
         remote: true
       ) if comment.can_be_edited_by?(user)
     %>
@@ -40,13 +63,15 @@
                   data: is_deleted ? {} : { confirm: t('commontator.comment.actions.confirm_delete') },
                   method: :put,
                   id: "commontator-comment-#{comment.id}-#{del_string}",
-                  class: del_string,
+                  class: "btn btn-danger del-string",
                   remote: true %>
     <% end %>
   </span>
+
+  </div>
 </div>
 
-<div id="commontator-comment-<%= comment.id %>-section-middle" class="section middle">
+<div id="commontator-comment-<%= comment.id %>-section-middle" class="section middle" style="font-size:18px;background-color:white;margin:5px 50px 5px 50px;line-height:30px;border-radius:5px;">
   <span id="commontator-comment-<%= comment.id %>-avatar" class="avatar">
     <%= Commontator.commontator_avatar(creator, self) %>
   </span>
@@ -60,29 +85,8 @@
   </div>
 </div>
 
-<div id="commontator-comment-<%= comment.id %>-section-bottom" class="section bottom">
-  <% unless comment.is_deleted? %>
-    <span id="commontator-comment-<%= comment.id %>-reply-link" class="reply">
-      <%=
-        link_to(
-          t('commontator.comment.actions.reply'),
-          commontator.new_thread_comment_path(thread, comment: { parent_id: comment.id }),
-          remote: true
-        ) if thread.config.comment_reply_style != :n && !thread.is_closed?
-      %>
-    </span>
-  <% end %>
 
-  <span id="commontator-comment-<%= comment.id %>-created-timestamp" class="timestamp">
-    <%= comment.created_timestamp %>
-  </span>
-
-  <span id="commontator-comment-<%= comment.id %>-updated-timestamp" class="timestamp">
-    <%= comment.updated_timestamp if comment.is_modified? %>
-  </span>
-</div>
-
-<div id="commontator-comment-<%= comment.id %>-children" class="children">
+<div id="commontator-comment-<%= comment.id %>-children" class="children" style="background-color:#b7c66d;">
   <% if thread.config.comment_order == :l %>
     <div id="commontator-comment-<%= comment.id %>-reply" class="reply"></div>
   <% end %>
@@ -105,4 +109,5 @@
                                 action: 'show',
                                 id: comment.id } %>
   </div>
+</div>
 </div>
