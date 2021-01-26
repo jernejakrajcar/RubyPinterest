@@ -5,19 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[github google_oauth2]
 
-  acts_as_commontator
   has_many :pins, dependent: :destroy
   has_one_attached :avatar
+  acts_as_commontator
 
   def self.from_omniauth(auth)
      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-     if(auth.info.email?)
        user.email = auth.info.email
-     else
-       user.email = "temp@neya.si"
-     end
-     user.password = Devise.friendly_token[0, 20]
-     user.name = auth.info.name
+       user.password = Devise.friendly_token[0, 20]
+       user.name = auth.info.name
      end
    end
 
@@ -31,4 +27,5 @@ class User < ApplicationRecord
          end
        end
      end
+
  end
