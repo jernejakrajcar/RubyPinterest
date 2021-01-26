@@ -281,7 +281,9 @@ Devise.setup do |config|
   # google_client_secret =
   # config.omniauth :google_oauth2, google_client_id, google_client_secret, scope: 'userinfo.email,userinfo.profile', skip_jwt: true
 
-
+  require "omniauth-google-oauth2"
+  config.omniauth :github, Rails.application.credentials.dig(:github, :GITHUB_CLIENT_ID), Rails.application.credentials.dig(:github, :GITHUB_CLIENT_SECRET)
+  config.omniauth :google_oauth2, Rails.application.credentials.dig(:google_oauth2, :client_id), Rails.application.credentials.dig(:google_oauth2, :client_secret), scope: 'userinfo.email,userinfo.profile', skip_jwt: true
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
@@ -319,7 +321,5 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
 
-  require "omniauth-google-oauth2"
-  config.omniauth :github, Rails.application.credentials.dig(:github, :GITHUB_CLIENT_ID), Rails.application.credentials.dig(:github, :GITHUB_CLIENT_SECRET)
-  config.omniauth :google_oauth2, Rails.application.credentials.dig(:google_oauth2, :client_id), Rails.application.credentials.dig(:google_oauth2, :client_secret), scope: 'userinfo.email,userinfo.profile', skip_jwt: true
+
 end
