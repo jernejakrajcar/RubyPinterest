@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   acts_as_commontator
   has_many :pins, dependent: :destroy
-  # has_one_attached :avatar
+  has_one_attached :avatar
 
   def self.from_omniauth(auth)
      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
