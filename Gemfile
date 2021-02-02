@@ -38,7 +38,7 @@ gem 'omniauth', '~> 1.9.1'
 
 gem 'devise' # Avtentikacija uporabnika
 
-gem 'aws-sdk-s3'
+gem 'aws-sdk-s3', require: false
 
 gem 'commontator' #gem za komentarje
 
