@@ -287,7 +287,8 @@ Devise.setup do |config|
   config.omniauth :github,  github_client_id, github_client_secret
 
 
-
+  google_client_id = ENV['client_id']
+  google_client_secret = ENV['client_secret']
   config.omniauth :google_oauth2, google_client_id, google_client_secret, scope: 'userinfo.email,userinfo.profile', skip_jwt: true
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
