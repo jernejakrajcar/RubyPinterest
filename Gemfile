@@ -26,17 +26,17 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+
+
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem  'omniauth-github'
-
-gem 'omniauth-google-oauth2', '~> 0.8.0'
-
-gem 'omniauth-oauth2'
-
-gem 'omniauth', '~> 1.9.1'
-
 gem 'devise' # Avtentikacija uporabnika
+gem 'omniauth-google-oauth2'
+gem 'omniauth-oauth2'
+gem 'omniauth', '~> 1.9.1'
+gem 'omniauth-facebook'
+
+
 
 gem 'aws-sdk-s3'
 
