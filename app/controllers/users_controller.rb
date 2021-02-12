@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+
   skip_before_action :protect_from_forgery, raise: false
 
    def show
@@ -15,7 +15,11 @@ class UsersController < ApplicationController
 
   private
 
- def user_params
+  def user_params
    params.require(:user).permit(:username, :email, :password, :bio, :image)
- end
+  end
+
+  def auth
+    request.env['omniauth.auth']
+  end
 end

@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
   skip_before_action :protect_from_forgery, raise: false
-  
+
   def create
     user = User.find_by_email(sign_in_params[:email])
 
@@ -10,4 +10,9 @@ class SessionsController < Devise::SessionsController
       render json: { errors: { 'email or password' => ['is invalid'] } }, status: :unprocessable_entity
     end
   end
+
+  def auth
+    request.env['omniauth.auth']
+  end
+  
 end
