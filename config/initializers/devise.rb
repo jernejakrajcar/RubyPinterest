@@ -282,12 +282,12 @@ Devise.setup do |config|
   # config.omniauth :google_oauth2, google_client_id, google_client_secret, scope: 'userinfo.email,userinfo.profile', skip_jwt: true
 
   require "omniauth-google-oauth2"
-  # github_client_id: <%= ENV['GITHUB_CLIENT_ID'] %>
-  # github_client_secret: <%= ENV['GITHUB_CLIENT_SECRET'] %>
+  github_client_id = ENV['GITHUB_CLIENT_ID']
+  github_client_secret = ENV['GITHUB_CLIENT_SECRET']
   config.omniauth :github,  github_client_id, github_client_secret
 
 
-  
+
   config.omniauth :google_oauth2, google_client_id, google_client_secret, scope: 'userinfo.email,userinfo.profile', skip_jwt: true
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
