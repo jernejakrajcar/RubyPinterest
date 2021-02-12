@@ -1,5 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
+  skip_before_action :protect_from_forgery, raise: false
+  
     def github
       @user = User.from_omniauth(request.env["omniauth.auth"])
       if @user.persisted?
