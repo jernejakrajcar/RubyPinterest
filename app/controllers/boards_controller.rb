@@ -31,7 +31,7 @@ class BoardsController < ApplicationController
     if @board.update(board_params)
       redirect_to boards_path, notice: 'The board was updated!'
     else
-      render: edit
+      render :edit
     end
   end
 
