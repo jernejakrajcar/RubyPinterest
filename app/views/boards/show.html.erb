@@ -1,0 +1,41 @@
+<h3>
+  <%= link_to @board.user.name, user_path(@board.user.name) %>
+</h3>
+
+<div class = "page-header">
+  <h1><%= @board.name %></h1>
+  <% if @board.user == current_user %>
+    <p>
+      <%= link_to 'edit', edit_board_path(@board) %> |
+      <%= link_to 'delete', @board, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+  <% end %>
+</div>
+
+<div class="grid row">
+  <% @board.pins.each do |pin| %>
+    <div class = "grid-item col-md-3 col-sm-4 col-xs-12">
+      <div class = "pin grid-item-content">
+        <div class = "pin-image">
+          <% if @pin.image.attached? %>
+          <%= image_tag(@pin.image, :class => "image_show" ) %>
+          <% end %>
+        </div>
+        <div class = "pin-content">
+          <div class = "pin-description">
+            <%= pin.description %>
+          </div>
+          <div class = "user">
+            <div class = "user-detail"><%= pin.user.name %></div>
+            <% if pin.user == current_user %>
+            <div class = "user-actions">
+              <%= link_to 'Edit', edit_pin_path(pin) %>
+              <%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

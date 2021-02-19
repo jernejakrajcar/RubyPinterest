@@ -14,10 +14,15 @@ class BoardsController < ApplicationController
 
   def create
     @board = current_user.boards.build(board_params)
-    if @board.save
-      redirect_to boards_path, notice: 'New board was created!'
-    else
-      render :new
+
+    respond_to do |format|
+      if @board.save
+        format.html { redirect_to user_path(current_user.name), notice: 'Board was successfully created!' }
+        format.json { render :show, status: :created, location: @board }
+      else
+        format.html { render :new }
+        format.json { render json: @boards.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -28,16 +33,23 @@ class BoardsController < ApplicationController
   end
 
   def update
-    if @board.update(board_params)
-      redirect_to boards_path, notice: 'The board was updated!'
-    else
-      render :edit
+    respond_to do |format|
+      if @board.update(board_params)
+        format.html { redirect_to user_path(current_user.name), notice: 'Board was successfully updated!' }
+        format.json { render :show, status: :ok, location: @board }
+      else
+        format.html { render :edit }
+        format.json { render json: @boards.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def destroy
     @board.destroy
-    redirect_to boards_path, notice: 'Board was deleted!'
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user.name), notice: 'Board was successfully deleted!' }
+      format.json { head :no_content }
+    end
   end
 
   private
