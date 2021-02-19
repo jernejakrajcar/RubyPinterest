@@ -1,4 +1,4 @@
-<%= form_for @board do |f| %>
+<%= form_for @board do |form| %>
   <% if board.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@board.errors.count, "error") %> prohibited this board from being saved:</h2>
@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: 'form-control' %>
+    <%= form.label :name %><br>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= f.submit, class: 'btn btn-danger' %>
+    <%= form.submit, class: 'btn btn-danger' %>
   </div>
 <% end %>
