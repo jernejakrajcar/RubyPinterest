@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :pins, dependent: :destroy
-  has_many :boards
+  has_many :boards, dependent: :destroy
   has_one_attached :avatar
   acts_as_commontator
 
@@ -25,7 +25,7 @@ class User < ApplicationRecord
        else
          user.name = "anonimous"
        end
-       
+
        user.password = Devise.friendly_token[0, 20]
 
      end
