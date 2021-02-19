@@ -40,7 +40,7 @@
 
         <div class="field">
           <%= form.label :board %>
-          <%= form.select :board_id, options_from_collection_for_select(current_user.boards, "id", "name") %>
+          <%= form.select :board, options_from_collection_for_select(current_user.boards, "id", "name") %>
         </div>
 
 
