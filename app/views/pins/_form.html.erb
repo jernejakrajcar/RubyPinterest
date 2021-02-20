@@ -31,7 +31,7 @@
 
         <div class="field">
           <% if @pin.image.attached? %>
-            <%= image_tag @pin.image %>
+            <%= image_tag @pin.image, class:"image-edit-pin" %>
           <% end %>
 
           <%= form.label :image %>

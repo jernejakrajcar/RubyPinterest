@@ -35,7 +35,7 @@
           </div>
 
 
-          <div class="actions">
+          <div class="actions" style="width:100%;">
             <%= f.submit "Sign up", class:"btn btn-danger" %>
           </div>
         <% end %>
@@ -44,12 +44,12 @@
 
       <hr>
 
-      <%= link_to(user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-social btn-google border mr-1 button is-danger") do %>
-          <i class="fa fa-google fa-fw"></i> Sign in with Google
+      <%= link_to(user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-light btn-block") do %>
+          Sign in with Google
       <% end %>
 
-      <%= link_to(user_facebook_omniauth_authorize_path, method: :post, class: "btn btn-social btn-facebook border mr-1 button is-danger") do %>
-          <i class="fa fa-facebook fa-fw"></i> Sign in with Facebook
+      <%= link_to(user_facebook_omniauth_authorize_path, method: :post, class: "btn btn-primary btn-block") do %>
+         Sign in with Facebook
       <% end %>
       </div>
   </div>
