@@ -1,5 +1,6 @@
 <div class="container h100" id="bg-gradient">
   <div class="d-flex justify-content-center h-100" >
+    <%= link_to "Back", :back, class:"btn btn-secondary", style:"margin-top:10px;margin-bottom:25px;"%>
   <div class="user_card_big">
   <div class="row" style="margin-top:100px;">
        <h2>Edit <%= resource_name.to_s.humanize %></h2>
@@ -8,26 +9,7 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
     		<div class="col-sm-3"><!--left col-->
-
-
-        <div class="text-center">
-          <div class="form-group">
-            <%= f.label :avatar %>
-
-            <% if @user.avatar.attached? %>
-              <%= image_tag @user.avatar, class:"avatar img-circle img-thumbnail" %>
-
-            <% else %>
-            <h6>Upload a different photo...</h6>
-
-            <%= f.file_field :avatar, class:"text-center center-block file-upload" %>
-            <% end %>
-
-
-          </div>
-
-
-        </div><br>
+<br>
 
           </div><!--/col-3-->
       	<div class="col-sm-9">
@@ -108,9 +90,6 @@
   <h3>Cancel my account</h3>
 
   <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-warning" %></p>
-
-  <hr>
-  <%= link_to "Back", :back, class:"btn btn-secondary", style:"margin-top:10px;margin-bottom:25px;"%>
 
   <hr>
   <div class="divider">

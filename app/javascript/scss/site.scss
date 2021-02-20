@@ -50,6 +50,7 @@ body, html{
 	border-radius:4px;
 	height:50px;
 	line-height:50px;
+	margin-bottom: 5px;
 }
 
 .form-control-image {
@@ -62,13 +63,13 @@ body, html{
 	background: #ffffff;
 	border-radius: 2px;
 	margin:10px auto 30px;
-	max-width:45%;
+	max-width:50%;
 	padding:50px 70px 70px 71px;
 }
 
 .user_card {
-	height: 450px;
-	width: 500px;
+	height: 600px;
+	width: 450px;
 	margin-top: auto;
 	margin-bottom: auto;
 	background: #bdbdbd;
@@ -143,6 +144,16 @@ body, html{
    margin: 0;
    }
  }
+}
+
+.pin-show-btns{
+	margin-bottom:10px;
+}
+
+.image-edit-pin{
+	width: 350px;
+	height: auto;
+	border-radius:15px;
 }
 
 .add-pin {
