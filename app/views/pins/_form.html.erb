@@ -5,7 +5,7 @@
       <div class="panel">
         <h2 class="form-heading">New Pin</h2>
       </div>
-      <%= form_for(@pin, html: { multipart: true, class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |form| %>
+      <%= form_for(@pin, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |form| %>
         <% if @pin.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(@pin.errors.count, "error") %> prohibited this pin from being saved:</h2>
@@ -28,11 +28,6 @@
           <%= form.text_area :description, required: true, class:"form-control" %>
         </div>
 
-        <div class="field">
-          <%= form.label :board %>
-          <%= form.select :board, options_from_collection_for_select(current_user.boards, "id", "name") %>
-        </div>
-
 
         <div class="field">
           <% if @pin.image.attached? %>
@@ -42,7 +37,6 @@
           <%= form.label :image %>
           <%= form.file_field :image, class:"form-control-image" %>
         </div>
-
 
 
         <div class="actions">
