@@ -9,7 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 //= require jquery.ui.widget
-//=require jquery-fileupload/basic
+//= require jquery-fileupload/basic
 
 //= require z.jquery.fileupload
 
