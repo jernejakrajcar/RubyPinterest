@@ -1,10 +1,10 @@
+<h2>All Boards</h2>
 
-<%= link_to 'New board', new_board_path %>
+<%= link_to 'new board', new_board_path %>
 
 <% @boards.each do |board| %>
   <div>
     <h2><%= board.name %></h2>
-    <%= board.user_id %>
     <p><%= link_to 'edit', edit_board_path(board) %> <%= link_to 'delete', board, method: :delete %></p>
   </div>
 <% end %>
