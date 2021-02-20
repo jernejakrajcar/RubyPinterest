@@ -8,7 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
-require("blueimp-file-upload/js/jquery.fileupload.js")
+require("jquery.fileupload.js")
 //= require jquery.ui.widget
 //=require jquery-fileupload/basic
 
