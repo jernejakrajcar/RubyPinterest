@@ -10,6 +10,10 @@
 
   <% @user.boards.each do |board| %>
   <div class="box panel panel-default">
+
+    <% if board.image.attached? %>
+      <%= link_to (image_tag(board.image)), board %>
+    <% else %>
     <h2 class="board-link">
       <%= link_to board.name, board %>
       <% if board.user == current_user %>
