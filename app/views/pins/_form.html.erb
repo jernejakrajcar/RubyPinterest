@@ -28,6 +28,11 @@
           <%= form.text_area :description, required: true, class:"form-control" %>
         </div>
 
+        <div class="field">
+          <%= form.label :board %>
+          <%= form.select :board, options_from_collection_for_select(current_user.boards, "id", "name") %>
+        </div>
+
 
         <div class="field">
           <% if @pin.image.attached? %>
@@ -38,16 +43,10 @@
           <%= form.file_field :image, class:"form-control-image" %>
         </div>
 
-        <div class='bar'></div>
-
-        <div class="field">
-          <%= form.label :board %>
-          <%= form.select :board, options_from_collection_for_select(current_user.boards, "id", "name") %>
-        </div>
 
 
         <div class="actions">
-          <%= form.submit "Submit" %>
+          <%= form.submit "Create", class:"btn btn-danger" %>
         </div>
       <% end %>
 
