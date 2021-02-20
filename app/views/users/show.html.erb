@@ -6,7 +6,6 @@
 <hr>
 
 <h1>My Boards</h1>
-<%= link_to 'New board', new_board_path %>
 <div id="boards" class="transitions-enabled infinite-scroll centered clearfix">
 
   <% @user.boards.each do |board| %>
