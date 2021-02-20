@@ -11,11 +11,14 @@ module PinsHelper
 
   def display_show_pin_links(pin)
     capture do
-      concat link_to 'Edit', edit_pin_path(pin) if current_user == pin.user
-      concat ' | ' if current_user == pin.user
-      concat link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure? '} if current_user == pin.user
-      concat ' | ' if current_user == pin.user
-      concat link_to 'Back', pins_path
+      if current_user == pin.user
+        concat link_to 'Edit', edit_pin_path(pin), class:"btn btn-outline-danger"
+        concat ' | '
+        concat link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure? '}, class:"btn btn-danger"
+        concat ' | '
+      else
+        concat link_to 'Back', pins_path, class:"btn btn-secondary"
+      end
     end
   end
 end

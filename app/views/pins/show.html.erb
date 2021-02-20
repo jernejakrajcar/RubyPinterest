@@ -1,4 +1,7 @@
 <div class="container h100" style="text-align:center;">
+  <div class="pin-show-btns">
+    <%= display_show_pin_links(@pin) %>
+  </div>
   <div class="pin-back" style="border-top-left-radius:10px;border-top-right-radius:10px;background-color:white;padding:50px;padding-bottom:300px;">
   <div class="pin-base" style="border-radius:15px;max-height:500px;">
     <div class="pin-photo">
@@ -29,6 +32,6 @@
 <div class="comments" style="border-bottom-left-radius:10px;border-bottom-right-radius:10px;background-color:white;padding:20px;padding-bottom:100px;">
   <%= commontator_thread(@pin) %>
 </div>
-<%= display_show_pin_links(@pin) %>
+
 
 </div>
