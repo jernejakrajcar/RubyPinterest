@@ -31,6 +31,7 @@ const imagePath = (name) => images(name, true)
 $(window).on('load', function() {
   $('.directUpload').find("input:file").each(function(i, elem) {
     var fileInput = $(elem);
+    debugger;
     var form = $(fileInput.parents('form:first'));
     var submitButton = form.find('input[type="submit"]');
     var progressBar = $("<div class='bar'></div>");
