@@ -148,10 +148,13 @@ body, html{
 
 .pin-show-btns{
 	margin-bottom:10px;
+	margin:0 auto;
 }
 
 .image-edit-pin{
-	width: 350px;
+	width: 100%;
+	margin-bottom:15px;
+	margin-top:15px;
 	height: auto;
 	border-radius:15px;
 }
@@ -166,7 +169,7 @@ body, html{
 		color:#d75252;
 		padding: 5px 30px 15px 30px;
     font-size: 50px;
-		background-color: #c8c8c8;
+		background-color: #f4f4f4;
 		display:inline-block;
 		font-weight:bold;
 		text-align:center;
@@ -175,6 +178,7 @@ body, html{
 	.button-add:hover{
 		text-decoration: none;
 		color: #636363;
+		background-color: #ffffff;
 	}
 }
 
