@@ -15,10 +15,18 @@
       <div class="container h-100">
         <%= link_to (image_tag "logo.png", :class => "style_image_small" ), root_path %>
         <div class="d-flex justify-content-between h-100">
-          <div class="searchbar">
-            <input class="search_input" type="text" name="" placeholder="Search...">
-            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-          </div>
+          <%= form_tag pins_path, :method => "get" do %>
+            <div class="searchbar">
+              <%= text_field_tag :search, params[:search], class:"search_input" %>
+              <a class="search_icon">
+                <i class="fas fa-search">
+                  <%= submit_tag(" ", :title => nil) %>
+                </i>
+              </a>
+              <!-- <input class="search_input" type="text" name="search" placeholder="Search..."> -->
+              <!-- <a href="#" class="search_icon"></a> -->
+            </div>
+          <% end %>
         </div>
         <%= display_session_links %>
       </div>
