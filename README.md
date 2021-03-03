@@ -1,24 +1,20 @@
-# README
+# RubyPinterest
+  ## Ruby on Rails projekt - izdelava podobne spletne strani kot je Pinterest
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  RubyPinterest je spletna aplikacija, kjer si lahko uporabnik ogleduje slike. Ob prijavi ali registraciji pa lahko tudi slike dodaja v obliki pinov. Te lahko tudi komentira.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  ### 1. Registracija/Prijava
+  
+   Uporabnik se lahko prijavi z Gmailom ali s Facebookom. Lahko pa tudi preko registracije, ki jo v aplikaciji omogoča gem devise.
+   
+  ### 2. Urejanje profila
+  
+   Uporabnik lahko svoj profil tudi uredi. Lahko si spremeni ime in prav tako tudi geslo.
+   
+  ### 3. Pini
+  
+   Prijavljeni uporabniki lahko na aplikacijo dodajo pine, ki vsebujejo sliko, naslov in opis. Ko ustvarijo pin, lahko tega še urejajo ali pa le tega izbrišejo. Pine si lahko ogledujejo vsi. Tudi neprijavljeni uporabniki.
+   
+  ### 4. Komentarji
+  
+   Pine lahko prijavljeni uporabniki komentirajo. Prav tako lahko te urejajo ali izbrišejo. Neprijavljeni uporabniki si lahko komentarje samo ogledujejo. 
